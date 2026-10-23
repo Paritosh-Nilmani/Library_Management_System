@@ -1,0 +1,52 @@
+services:
+  - type: pserv
+    name: library-management-mysql
+    runtime: docker
+    region: singapore
+    plan: 0.5c-512mb
+    dockerfilePath: ./database/Dockerfile
+    dockerContext: .
+    disk:
+      name: library-management-mysql-data
+      mountPath: /var/lib/mysql
+      sizeGB: 10
+    envVars:
+      - key: MYSQL_DATABASE
+        value: library_management_system
+      - key: MYSQL_USER
+        value: library_app
+      - key: MYSQL_PASSWORD
+        generateValue: true
+      - key: MYSQL_ROOT_PASSWORD
+        generateValue: true
+
+  - type: web
+    name: library-management-system
+    runtime: docker
+    region: singapore
+    plan: 0.5c-512mb
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /login
+    envVars:
+      - key: PORT
+        value: "10000"
+      - key: DB_HOST
+        fromService:
+          type: pserv
+          name: library-management-mysql
+          property: host
+      - key: DB_PORT
+        value: "3306"
+      - key: DB_NAME
+        value: library_management_system
+      - key: DB_USER
+        fromService:
+          type: pserv
+          name: library-management-mysql
+          envVarKey: MYSQL_USER
+      - key: DB_PASSWORD
+        fromService:
+          type: pserv
+          name: library-management-mysql
+          envVarKey: MYSQL_PASSWORD

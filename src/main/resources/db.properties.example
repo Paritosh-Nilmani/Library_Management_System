@@ -1,0 +1,11 @@
+# Copy to db.properties for local development, or use environment variables.
+# Set db.url for a full JDBC URL, or leave it blank and use the host settings below.
+db.url=
+db.host=127.0.0.1
+db.port=3306
+db.name=library_management_system
+db.username=library_app
+db.password=
+db.pool.maxTotal=12
+db.pool.maxIdle=6
+db.pool.minIdle=2

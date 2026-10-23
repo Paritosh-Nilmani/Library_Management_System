@@ -1,0 +1,26 @@
+target/
+tools/
+*.class
+*.log
+*.pid
+.classpath
+.project
+.settings/
+.vscode/
+.idea/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Local credentials and configuration
+.env
+.env.*
+!.env.example
+**/db.properties
+secrets/
+*.secret
+*.pem
+*.key
+*.p12
+*.jks
+*.keystore

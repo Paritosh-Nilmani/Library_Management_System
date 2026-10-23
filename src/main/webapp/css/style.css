@@ -1,0 +1,403 @@
+:root {
+    --bg: #f5f7fb;
+    --panel: #ffffff;
+    --ink: #1f2933;
+    --muted: #64748b;
+    --line: #dbe3ef;
+    --sidebar: #24313f;
+    --sidebar-soft: #304153;
+    --primary: #2563eb;
+    --teal: #0f766e;
+    --green: #15803d;
+    --amber: #b45309;
+    --rose: #be123c;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 0;
+}
+
+.app-shell {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 280px;
+    min-height: 100vh;
+    background: var(--sidebar);
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    padding: 1.25rem;
+}
+
+.sidebar-brand,
+.login-brand {
+    display: flex;
+    align-items: center;
+    gap: .85rem;
+}
+
+.brand-mark {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    display: grid;
+    place-items: center;
+    background: #14b8a6;
+    color: #ffffff;
+    font-size: 1.35rem;
+    flex: 0 0 auto;
+}
+
+.brand-title {
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.brand-subtitle,
+.eyebrow,
+.panel-header p,
+.table-muted,
+.demo-note,
+.login-brand p {
+    color: var(--muted);
+}
+
+.sidebar .brand-subtitle {
+    color: #cbd5e1;
+    font-size: .86rem;
+}
+
+.sidebar-nav {
+    display: grid;
+    gap: .35rem;
+    margin-top: 2rem;
+}
+
+.sidebar-nav .nav-link {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    min-height: 44px;
+    padding: .72rem .8rem;
+    color: #dbeafe;
+    border-radius: 8px;
+}
+
+.sidebar-nav .nav-link:hover,
+.sidebar-nav .nav-link.active {
+    background: var(--sidebar-soft);
+    color: #ffffff;
+}
+
+.sidebar-footer {
+    margin-top: auto;
+    padding-top: 1rem;
+}
+
+.admin-chip {
+    display: flex;
+    align-items: center;
+    gap: .55rem;
+    padding: .7rem .8rem;
+    border: 1px solid rgba(255, 255, 255, .18);
+    border-radius: 8px;
+    color: #eef2ff;
+}
+
+.main-panel {
+    flex: 1;
+    min-width: 0;
+}
+
+.topbar {
+    min-height: 96px;
+    display: flex;
+    align-items: center;
+    padding: 1.25rem 1.75rem;
+    background: #ffffff;
+    border-bottom: 1px solid var(--line);
+}
+
+.eyebrow {
+    text-transform: uppercase;
+    font-size: .75rem;
+    font-weight: 700;
+}
+
+.page-title {
+    font-size: 1.55rem;
+    font-weight: 700;
+}
+
+.content {
+    padding: 1.75rem;
+}
+
+.panel,
+.stat-card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, .05);
+}
+
+.panel {
+    padding: 1.25rem;
+}
+
+.panel-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.panel-header h2 {
+    font-size: 1.15rem;
+    margin: 0 0 .25rem;
+}
+
+.panel-header p {
+    margin: 0;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.stat-card {
+    padding: 1.15rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    min-height: 118px;
+}
+
+.stat-card p {
+    margin: 0 0 .25rem;
+    color: var(--muted);
+    font-weight: 700;
+}
+
+.stat-card h2 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.stat-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 8px;
+    display: grid;
+    place-items: center;
+    color: #ffffff;
+    font-size: 1.45rem;
+}
+
+.accent-teal .stat-icon {
+    background: var(--teal);
+}
+
+.accent-green .stat-icon {
+    background: var(--green);
+}
+
+.accent-amber .stat-icon {
+    background: var(--amber);
+}
+
+.accent-rose .stat-icon {
+    background: var(--rose);
+}
+
+.quick-actions,
+.form-actions,
+.search-row {
+    display: flex;
+    gap: .75rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.search-row .input-group {
+    flex: 1 1 320px;
+}
+
+.data-table {
+    margin-bottom: 0;
+}
+
+.data-table th {
+    color: #475569;
+    font-size: .82rem;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.data-table td {
+    vertical-align: middle;
+}
+
+.table-muted {
+    font-size: .84rem;
+}
+
+.action-cell {
+    min-width: 180px;
+    white-space: nowrap;
+}
+
+.action-cell .btn {
+    margin: .15rem;
+}
+
+.form-panel {
+    max-width: 980px;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+}
+
+.empty-state.compact {
+    padding: 1.5rem 1rem;
+}
+
+.empty-state i {
+    font-size: 2.4rem;
+    color: var(--muted);
+}
+
+.empty-state h2 {
+    margin: 1rem 0 .5rem;
+}
+
+.empty-state p {
+    margin: .4rem 0 1rem;
+    color: var(--muted);
+}
+
+.login-body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #eef6ff 0%, #f5f7fb 50%, #ecfdf5 100%);
+}
+
+.login-shell {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+}
+
+.login-card {
+    width: min(100%, 430px);
+    background: #ffffff;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 20px 50px rgba(15, 23, 42, .12);
+}
+
+.login-brand h1 {
+    margin: 0 0 .25rem;
+    font-size: 1.45rem;
+}
+
+.login-brand p {
+    margin: 0;
+}
+
+.btn {
+    border-radius: 8px;
+}
+
+.badge {
+    border-radius: 7px;
+}
+
+@media (max-width: 1100px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 900px) {
+    .app-shell {
+        display: block;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-height: auto;
+    }
+
+    .sidebar-nav {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        margin-top: 1rem;
+    }
+
+    .sidebar-footer {
+        margin-top: 1rem;
+    }
+
+    .topbar {
+        min-height: auto;
+    }
+}
+
+@media (max-width: 640px) {
+    .content,
+    .topbar {
+        padding: 1rem;
+    }
+
+    .panel-header,
+    .form-actions,
+    .search-row,
+    .quick-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .panel-header .btn,
+    .form-actions .btn,
+    .search-row .btn,
+    .quick-actions .btn {
+        width: 100%;
+    }
+
+    .stats-grid,
+    .sidebar-nav {
+        grid-template-columns: 1fr;
+    }
+
+    .action-cell {
+        min-width: 150px;
+        white-space: normal;
+    }
+
+    .action-cell .btn,
+    .action-cell form {
+        width: 100%;
+    }
+
+    .action-cell .btn {
+        margin: .18rem 0;
+    }
+}
